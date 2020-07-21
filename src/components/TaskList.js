@@ -7,8 +7,8 @@ const TaskList = (props) => {
   const done = props.lists.filter(list => !list.active)
   console.log(active, done);
 
-  const activeLists = active.map(list => <List key={list.id} list={list} delete={props.delete} change={props.change} />)
-  const doneLists = done.map(list => <List key={list.id} list={list} delete={props.delete} change={props.change} />)
+  const activeLists = active.map(list => <List key={list.id} list={list} delete={props.delete} change={props.change} update={props.setUpdate} />)
+  const doneLists = done.map(list => <List key={list.id} list={list} delete={props.delete} change={props.change} update={props.setUpdate} />)
 
   return (
     <>

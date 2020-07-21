@@ -31,6 +31,7 @@ class AddList extends Component {
     });
   }
 
+
   handleClick = () => {
     const { text, number, category } = this.state;
     if (text.length > 3) {
