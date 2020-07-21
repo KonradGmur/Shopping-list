@@ -19,7 +19,6 @@ class App extends Component {
     })
   }
   changeListStatus = (id) => {
-    console.log('change w stanie elementu o id ' + id);
     const lists = [...this.state.lists];
     lists.forEach(list => {
       if (list.id === id) {
@@ -29,6 +28,18 @@ class App extends Component {
     })
     this.setState({
       lists
+    })
+  }
+
+  setUpdate = (id, text) => {
+    const lists = [...this.state.lists];
+    lists.map(list => {
+      if (list.id === id) {
+        list.text = text;
+      }
+    })
+    this.setState({
+      lists: lists
     })
   }
 
@@ -61,7 +72,7 @@ class App extends Component {
       <div className="App">
         <h1>Lista zakupów</h1>
         <AddList add={this.addNewList} />
-        <TaskList lists={this.state.lists} delete={this.deleteList} change={this.changeListStatus} />
+        <TaskList lists={this.state.lists} delete={this.deleteList} change={this.changeListStatus} setUpdate={this.setUpdate} />
       </div>
     );
   }
