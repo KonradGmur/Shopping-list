@@ -5,7 +5,7 @@ class AddList extends Component {
   state = {
     text: '',
     number: '',
-    value: '',
+    category: '',
   }
 
 
@@ -27,7 +27,7 @@ class AddList extends Component {
 
   handleSelect = (e) => {
     this.setState({
-      value: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+      category: e.target.value
     });
   }
 
@@ -40,7 +40,7 @@ class AddList extends Component {
         this.setState({
           text: '',
           number: '',
-          value: '',
+          category: '',
         })
       }
     } else {
@@ -56,14 +56,14 @@ class AddList extends Component {
         <label htmlFor="number">Ilość: </label>
         <input type="number" placeholder="Wpisz wpisz liczbę" value={this.state.number} onChange={this.handleNumber} /><br />
         <label htmlFor="select">Kategoria: </label>
-        <select multiple={true} value={this.state.value} onChange={this.handleSelect}>
-          <option value="A"> warzywa </option>
-          <option value="B"> owoce </option>
-          <option value="C"> słodycze </option>
-          <option value="D"> pieczywo </option>
-          <option value="E"> chemia gospodarcza </option>
-          <option value="F"> nabiał </option>
-          <option value="G"> mięso </option>
+        <select category={this.state.value} onChange={this.handleSelect}>
+          <option value="vegetables"> warzywa </option>
+          <option value="fruits"> owoce </option>
+          <option value="sweets"> słodycze </option>
+          <option value="bread"> pieczywo </option>
+          <option value="chemicals"> chemia gospodarcza </option>
+          <option value="dairy"> nabiał </option>
+          <option value="meat"> mięso </option>
         </select>
         <button type="submit" value="Dodaj" onClick={this.handleClick}>Dodaj</button>
       </form>

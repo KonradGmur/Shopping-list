@@ -31,31 +31,12 @@ class App extends Component {
     })
   }
 
-  setUpdate = (id, text) => {
-    const lists = [...this.state.lists];
-    lists.map(list => {
-      if (list.id === id) {
-        list.text = text;
-      }
-    })
-    this.setState({
-      lists: lists
-    })
-  }
-
   addNewList = (text, number, category) => {
     const list = {
       id: this.counter,
       text,
       number,
-      category: {
-        vegetables: 'warzywa',
-        fruits: 'owoce',
-        sweets: 'słodycze',
-        bread: 'pieczywo',
-        chemicals: 'chemia gospodarcza',
-        dairy: 'nabiał'
-      },
+      category,
       active: 'true',
       finishDate: null,
     }
@@ -72,7 +53,7 @@ class App extends Component {
       <div className="App">
         <h1>Lista zakupów</h1>
         <AddList add={this.addNewList} />
-        <TaskList lists={this.state.lists} delete={this.deleteList} change={this.changeListStatus} setUpdate={this.setUpdate} />
+        <TaskList lists={this.state.lists} delete={this.deleteList} change={this.changeListStatus} />
       </div>
     );
   }
