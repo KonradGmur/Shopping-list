@@ -5,7 +5,7 @@ class AddList extends Component {
   state = {
     text: '',
     number: '',
-    category: '',
+    value: '',
   }
 
 
@@ -27,7 +27,7 @@ class AddList extends Component {
 
   handleSelect = (e) => {
     this.setState({
-      category: e.target.value
+      value: e.target.value
     });
   }
 
@@ -40,7 +40,7 @@ class AddList extends Component {
         this.setState({
           text: '',
           number: '',
-          category: '',
+          value: '',
         })
       }
     } else {
@@ -56,7 +56,7 @@ class AddList extends Component {
         <label htmlFor="number">Ilość: </label>
         <input type="number" placeholder="Wpisz wpisz liczbę" value={this.state.number} onChange={this.handleNumber} /><br />
         <label htmlFor="select">Kategoria: </label>
-        <select category={this.state.value} onChange={this.handleSelect}>
+        <select value={this.state.value} onChange={this.handleSelect}>
           <option value="vegetables"> warzywa </option>
           <option value="fruits"> owoce </option>
           <option value="sweets"> słodycze </option>
